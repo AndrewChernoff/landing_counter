@@ -1,0 +1,73 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 261px;
+    width: 187px;
+    padding: 26px clamp(18px, 27px, 36px);
+    border-radius: 20px;
+    border: grey 2px solid;
+
+    &__name {
+        font-family: 'Bebas Neue';
+        font-size: 30px;
+        font-weight: 400;
+        color: var(--darkGrey)
+    }
+
+    &__cost {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    &__price {
+        font-family: 'PT Root UI';
+        font-size: 50px;
+        font-weight: 700;
+        color: var(--black)
+    }
+
+    &__noSalePrice {
+        font-family: 'PT Root UI';
+        font-size: 24px;
+        font-weight: 500;
+        color: var(--grey);
+        text-decoration-line: line-through;
+    }
+
+    &__descr {
+        font-family: 'PT Root UI';
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+.lastCard{
+    position: relative;
+    flex: 1 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    height: 30%;
+    width: 187px;
+    padding: 26px 27px;
+    border-radius: 20px;
+    border: grey 2px solid;
+
+    .card__name {
+        font-family: 'Bebas Neue';
+        font-size: 30px;
+        font-weight: 400;
+        color: var(--black)
+    }
+}
+
+.star {
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    z-index: 1;
+}
