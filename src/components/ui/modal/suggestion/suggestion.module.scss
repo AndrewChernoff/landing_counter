@@ -1,0 +1,49 @@
+.modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 61px 88px 40px 88px;
+
+    height: 100%;
+
+
+    h2 {
+        font-family: 'Rubik';
+        font-size: 30px;
+        font-weight: 700;
+
+        span {
+            color: var(--blue);
+        }
+    }
+
+    p {
+        font-family: 'PT Root UI';
+        font-size: 24px;
+        font-weight: 500;
+    }
+
+    .gift {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
+        height: 59px;
+        border-radius: 30px;
+        border: #01B9C5 1.5px solid;
+
+        font-family: 'PT Root UI';
+        font-size: 24px;
+        font-weight: 700;
+
+        span {
+            color: var(--blue);
+        }
+    }t
+
+    &__offer {
+        width: 100%;
+
+    }
+}

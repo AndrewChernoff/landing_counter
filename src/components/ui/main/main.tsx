@@ -5,37 +5,13 @@ import { Product } from "../../../common/types/types";
 import { Card } from "../card/card";
 import { Button } from "../button/button";
 import s from "./main.module.scss";
+import { getItems } from "../../../common/functions/getItems";
+import { editDataBeforePopUp } from "../../../common/functions/editBeforePopUp";
 
 export type ExtendedProduct = Product & {
   noSalePrice: number;
   descr: string;
   sale: number;
-};
-
-const editData = (data: ExtendedProduct[]): ExtendedProduct[] => {
-  ///edit data before countdown finishs
-  const newData = data.map((el) => {
-    if (el.name === "1 неделя" /* && el.isPopular === true */) {
-      el.sale = 30;
-      el.descr = "Чтобы просто начать  👍🏻";
-      el.noSalePrice = 999;
-    } else if (el.name === "1 месяц" /* && el.isPopular === true */) {
-      el.sale = 40;
-      el.descr = "Привести тело впорядок 💪🏻";
-      el.noSalePrice = 2990;
-    } else if (el.name === "3 месяца" /* && el.isPopular === true */) {
-      el.sale = 50;
-      el.descr = "Изменить образ жизни 🔥";
-      el.noSalePrice = 5990;
-    } else if (el.name === "навсегда" /* && el.isPopular === true */) {
-      el.sale = 70;
-      el.descr = "Всегда быть в форме и поддерживать своё здоровье ⭐";
-      el.noSalePrice = 18990;
-    }
-    return el;
-  });
-
-  return newData;
 };
 
 type PropsType = {
@@ -46,19 +22,9 @@ export const Main = ({time}: PropsType) => {
   const [items, setItems] = useState<ExtendedProduct[] | null>(null);
   const [chosenItem, setChosenItem] = useState<ExtendedProduct | null>(null)  
 
-  const getItems = async () => {
-    const response = await fetch("https://t-pay.iqfit.app/subscribe/list-test");
-
-    if (response.ok) {
-      const data: Promise<Product[]> = await response.json();
-      return editData(data as any);
-    } else {
-      alert("Ошибка HTTP: " + response.status);
-    }
-  };
 
   useEffect(() => {
-    getItems().then((res) => setItems(res as ExtendedProduct[]));
+    getItems(editDataBeforePopUp).then((res) => setItems(res as ExtendedProduct[]));
   }, []);
 
   const chooseItem = (item: ExtendedProduct) => setChosenItem(item)

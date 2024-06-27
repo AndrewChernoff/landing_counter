@@ -1,0 +1,22 @@
+.modal {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 750px;
+
+    height: 80%;
+    margin: 0 auto;
+
+    background: #F5F7F7;
+    border: 1px solid #4C4C4C;
+    z-index: 1;
+
+    &__overlay {
+        position: fixed;
+        inset: 0;
+        background-color:  rgb(0 0 0 / 55%);
+        animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+}
