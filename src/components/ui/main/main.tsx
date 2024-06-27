@@ -3,8 +3,8 @@ import man from "../../../common/imgs/man.png";
 import containerStyles from "../../../common/styles/mainContainer.module.scss";
 import { Product } from "../../../common/types/types";
 import { Card } from "../card/card";
-import s from "./main.module.scss";
 import { Button } from "../button/button";
+import s from "./main.module.scss";
 
 export type ExtendedProduct = Product & {
   noSalePrice: number;

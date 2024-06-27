@@ -1,8 +1,30 @@
+/* @keyframes blink {
+    0%, 100% {
+      color: var(--blue); 
+    }
+    50% {
+      color: orange;
+    }
+  } */
+
+  .blink {
+    color: var(--orange);
+    animation: blink-animation 1s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+
+
 .countdown {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 0px;
 
     &__dots {
         font-family: 'Bebas Neue';
@@ -21,16 +43,22 @@
         justify-content: space-between;
         width: 110px;
 
-
         &_number {
             font-family: 'Bebas Neue';
             font-weight: 700;
             font-size: 60px;
             height: 55px;
             color: var(--blue);
+           
         }
+    }
 
-        &_messure {
+    &__messure {
+        display: flex;
+        justify-content: space-around;
+        gap: 30px;
+
+        &_item {
             font-family: 'Bebas Neue';
             font-weight: 400;
             color: #818798;

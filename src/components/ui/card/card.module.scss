@@ -59,6 +59,7 @@
     border-radius: 20px;
     border: grey 2px solid;
     background-color: #FFFF;
+    cursor: pointer;
 
     .card__name {
         font-family: 'Bebas Neue';
@@ -77,5 +78,6 @@
 
 .chosenItem {
     border: var(--blue) 2px solid;
-    background: var(--lightBlue)
+    background: var(--lightBlue);
+    cursor: pointer;
 }

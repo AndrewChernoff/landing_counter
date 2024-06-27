@@ -3,6 +3,7 @@ import s from "./countdown.module.scss";
 
 export const Countdown = () => {
   const [time, setTime] = useState<number>(120);
+  const [blink, setBlink] = useState(false)
 
   useEffect(() => {
     const timer: NodeJS.Timeout = setInterval(() => {
@@ -16,20 +17,28 @@ export const Countdown = () => {
       });
     }, 1000);
 
+    if (time === 30) {
+        setBlink(true)
+    }
+
     return () => clearInterval(timer); // Clear interval on component unmount
-  }, []);
-  
+  }, [time]);
 
   return (
     <div className={s.countdown}>
-      <div className={s.countdown__digit}>
-        <div className={s.countdown__digit_number}>
+      <div className={`${s.countdown__digit} ${blink && s.blink}`}>
+        <div className={s.countdown__digit_number} style={{color: `${blink && '#FD4D35'}`}}>
           {`${Math.floor(time / 60)}`.padStart(2, 0)}
         </div>
-        <div className={s.countdown__dots}>:</div>
-        <div className={s.countdown__digit_number}>
+        <div className={s.countdown__dots} style={{color: `${blink && '#FD4D35'}`}}>:</div>
+        <div className={s.countdown__digit_number} style={{color: `${blink && '#FD4D35'}`}}>
           {`${time % 60}`.padStart(2, 0)}
         </div>
+      </div>
+
+      <div className={s.countdown__messure}>
+        <div className={s.countdown__messure_item}>минут</div>
+        <div className={s.countdown__messure_item}>секунд</div>
       </div>
     </div>
   );
