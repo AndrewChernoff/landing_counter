@@ -20,8 +20,7 @@ export const Card = ({
         </div>
         <div className={s.card__descr}>{descr}</div>
         <div className={s.star}>
-         {/*  {sale}% */}
-          <Star />
+          <Star sale={sale}/>
         </div>
       </div>
     </>

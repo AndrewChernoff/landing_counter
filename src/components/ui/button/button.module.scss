@@ -1,0 +1,29 @@
+button {
+    all: unset;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+
+    &:hover {
+        background-color: rgb(171, 145, 93);
+    }
+}
+
+.large {
+    width: 310px;
+    height: 62px;
+    border-radius: 30px;
+    background: var(--orange);
+}
+
+.small {
+    width: 281px;
+    height: 76px;
+    border-radius: 60px;
+    background: var(--orange);
+}

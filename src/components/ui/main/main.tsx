@@ -4,6 +4,7 @@ import containerStyles from "../../../common/styles/mainContainer.module.scss";
 import { Product } from "../../../common/types/types";
 import { Card } from "../card/card";
 import s from "./main.module.scss";
+import { Button } from "../button/button";
 
 export type ExtendedProduct = Product & {
   noSalePrice: number;
@@ -77,6 +78,18 @@ export const Main = () => {
               Следуя плану на 3 месяца, люди получают в 2 раза лучший результат,
               чем за 1 месяц
             </p>
+              <label className={s.policy}>
+                <input type="checkbox" />
+                <span className={s.checkmark}></span> 
+                <p>Я соглашаюсь с{" "}
+                <span className={s.policy__blue}>Правилами сервиса</span> и условиями{" "}
+                <span className={s.policy__blue}> Публичной оферты</span>.
+                </p>
+                <span className={s.checkmark}></span>
+              </label>
+              <Button size="small" className={s.buy__btn}>Купить</Button>
+
+              <p className={s.policy__agree}>Нажимая «Купить», Пользователь соглашается на автоматическое списание денежных средств по истечению купленного периода. Дальнейшие списания по тарифам участвующим в акции осуществляются по полной стоимости согласно оферте.</p>
           </div>
         </div>
       </div>

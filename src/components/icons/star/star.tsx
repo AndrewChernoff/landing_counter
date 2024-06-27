@@ -1,9 +1,12 @@
+type PropsType = {
+  sale: number
+}
 
-export const Star = () => {
+export const Star = ({sale}: PropsType) => {
   return (
     <div style={{position: "relative"}}>
       <div style={{position: "absolute", top: "50%", right: "50%", transform: 'translateX(50%) translateY(-50%)', color: 'white'}}>
-      50%
+      -{sale}%
       </div>
     <svg
       width="66"
