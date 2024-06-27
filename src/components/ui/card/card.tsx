@@ -3,7 +3,7 @@ import { Star } from "../../icons/star/star";
 import { ExtendedProduct } from "../main/main";
 import s from "./card.module.scss";
 
-type PropsType = ExtendedProduct & { index: number; chooseItem: (id: string) => void; chosenId: string }
+type PropsType = ExtendedProduct & { index: number; chooseItem: (id: string) => void; chosenId: string | null}
 
 export const Card = ({
   id,
