@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react";
 import s from "./countdown.module.scss";
 
-export const Countdown = () => {
-  const [time, setTime] = useState<number>(120);
+
+type PropsType = {
+    time: number
+    setTime: (value: number | ((prevTime: number) => number)) => void
+  }
+
+export const Countdown = ({time, setTime} : PropsType) => {
   const [blink, setBlink] = useState(false)
 
   useEffect(() => {
@@ -22,17 +27,17 @@ export const Countdown = () => {
     }
 
     return () => clearInterval(timer); // Clear interval on component unmount
-  }, [time]);
+  }, [time]);  
 
   return (
     <div className={s.countdown}>
       <div className={`${s.countdown__digit} ${blink && s.blink}`}>
         <div className={s.countdown__digit_number} style={{color: `${blink && '#FD4D35'}`}}>
-          {`${Math.floor(time / 60)}`.padStart(2, 0)}
+          {`${Math.floor(time / 60)}`.padStart(2, '0')}
         </div>
         <div className={s.countdown__dots} style={{color: `${blink && '#FD4D35'}`}}>:</div>
         <div className={s.countdown__digit_number} style={{color: `${blink && '#FD4D35'}`}}>
-          {`${time % 60}`.padStart(2, 0)}
+          {`${time % 60}`.padStart(2, '0')}
         </div>
       </div>
 
