@@ -8,6 +8,7 @@
     padding: 26px clamp(18px, 27px, 36px);
     border-radius: 20px;
     border: grey 2px solid;
+    background-color: #FFFF;
 
     &__name {
         font-family: 'Bebas Neue';
@@ -56,6 +57,7 @@
     padding: 26px 27px;
     border-radius: 20px;
     border: grey 2px solid;
+    background-color: #FFFF;
 
     .card__name {
         font-family: 'Bebas Neue';
@@ -70,4 +72,9 @@
     top: -30px;
     right: 10px;
     z-index: 1;
+}
+
+.chosenItem {
+    border: var(--blue) 2px solid;
+    background: var(--lightBlue)
 }

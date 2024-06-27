@@ -40,6 +40,7 @@ const editData = (data: ExtendedProduct[]): ExtendedProduct[] => {
 
 export const Main = () => {
   const [items, setItems] = useState<ExtendedProduct[] | null>(null);
+  const [chosen, setChosen] = useState<string | null>(null)
   const timer = true;
 
   const getItems = async () => {
@@ -57,6 +58,8 @@ export const Main = () => {
     getItems().then((res) => setItems(res as ExtendedProduct[]));
   }, []);
 
+  const chooseItem = (id: string) => setChosen(id)
+
   return (
     <div className={s.main}>
       <div className={containerStyles.container}>
@@ -71,7 +74,7 @@ export const Main = () => {
                   timer ? el.isPopular === true : el.isPopular === false
                 )
                 .map((el, index) => {
-                  return <Card key={el.id} index={index} {...el} />;
+                  return <Card key={el.id} index={index} chosenId={chosen} chooseItem={chooseItem} {...el} />;
                 })}
             </div>
             <p className={s.main__content_descr}>
