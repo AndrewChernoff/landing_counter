@@ -27,8 +27,6 @@ export const Card = ({
     sale
 } = product
 
-
-
   const itemCN = classNames({ [s.card]: index !== 3 }, {[s.lastCard] : index === 3}, {[s.chosenItem] : id === pickedItem?.id})
   
   return (

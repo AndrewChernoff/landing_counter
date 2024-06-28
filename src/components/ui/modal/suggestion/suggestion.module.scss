@@ -1,12 +1,33 @@
+.hot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'PT Root UI';
+    font-size: 16px;
+    font-weight: 500;
+    width: 193px;
+    height: 31px;
+    color: #FFFFFF;
+    background-color: #01B9C5;
+    position: absolute;
+    top: 0;
+    left: 42px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
 .modal {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 41px 40px 40px  40px;
-
+    padding: 61px 40px 40px 40px;
     height: 100%;
-
+    position: relative;
 
     h2 {
         font-family: 'Rubik';
@@ -18,7 +39,7 @@
         }
     }
 
-    p {
+    &__subtitle {
         font-family: 'PT Root UI';
         font-size: 24px;
         font-weight: 500;
@@ -48,7 +69,7 @@
         justify-content: space-between;
         width: 100%;
 
-        p {
+        &_title {
             font-family: 'PT Root UI';
             font-size: 24px;
             font-weight: 500;
@@ -62,130 +83,69 @@
         gap: 20px;
     }
 
-    &__item {
-        //position: relative;
-
-        width: 210px;
-        min-height: 197px;
-        padding: 26px 22px 20px 26px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        border-radius: 20px;
-        border: #E7EAF1 2px solid;
-
-        &_name {
-            display: flex;
-            justify-content: space-between;
-            p {
-                font-family: 'Bebas Neue';
-                font-size: 26px;
-                font-weight: 400;
-            }
-        }
-
-        &_discount {
-            font-family: 'PT Root UI';
-            font-size: 20px;
-            font-weight: 700;
-            color: #2D3242;
-        }
-
-        &_price {
-            //border-top: #E7EAF1 1px solid;
-            padding-top: 24px;
-            display: flex;
-
-            p {
-                font-family: 'PT Root UI';
-                font-size: 46px;
-                font-weight: 700;
-            }
-
-            .star {
-                height: 53px;
-                width: 53px;
-                position: relative;
-
-                &__icon {
-                    position: absolute;
-                    top: -35%;
-                }
-            }
-        }
+    .radio {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
-}
 
-.chosenItem {
-    //active item
-    border: var(--blue) 2px solid;
-    background: var(--lightBlue);
-    cursor: pointer;
-}
+    /* Hide the browser's default radio button */
+    .radio input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
 
-///
-.radio {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #FFFF;
+        border-radius: 50%;
+        border: #555965 2px solid;
 
-/* Hide the browser's default radio button */
-.radio input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-}
+    }
 
-/* Create a custom radio button */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #FFFF;
-    border-radius: 50%;
-    border: #555965 2px solid;
+    .radio {
 
-}
-
-.radio {
-
-    /* &:hover input ~ .checkmark {
+        /* &:hover input ~ .checkmark {
       background-color: #FFFF;
       border: var(--blue) 2px solid;
     } */
 
-    input:checked~.checkmark {
-        background-color: #FFFF;
-        border: var(--blue) 2px solid;
-    }
+        input:checked~.checkmark {
+            background-color: #FFFF;
+            border: var(--blue) 2px solid;
+        }
 
-    .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
 
-    input:checked~.checkmark:after {
-        display: block;
+        input:checked~.checkmark:after {
+            display: block;
 
-    }
+        }
 
-    .checkmark:after {
-        top: 4px;
-        left: 4px;
-        width: 65%;
-        height: 65%;
-        border-radius: 50%;
-        background: var(--blue);
+        .checkmark:after {
+            top: 4px;
+            left: 4px;
+            width: 65%;
+            height: 65%;
+            border-radius: 50%;
+            background: var(--blue);
+        }
     }
 }

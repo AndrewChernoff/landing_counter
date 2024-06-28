@@ -1,0 +1,97 @@
+.item {
+    width: 210px;
+    min-height: 197px;
+    padding: 26px 22px 20px 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    border-radius: 20px;
+    border: #E7EAF1 2px solid;
+    cursor: pointer;
+
+    &_name {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        p {
+            font-family: 'Bebas Neue';
+            font-size: 26px;
+            font-weight: 400;
+        }
+    }
+
+    .cross {
+        position: relative;
+        display: inline-block;
+        text-align: center;
+        &_mark {
+            position: absolute;
+            top: -1px; // Adjust this value to position the cross mark above the text
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 24px;
+            color: var(--orange);
+            z-index: 1;
+          
+            &::before,
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 48px;
+              height: 2px; // Thickness of the cross
+              background-color: var(--orange);
+            }
+          
+            &::before {
+              transform: translate(-50%, -50%) rotate(15deg);
+            }
+          
+            &::after {
+              transform: translate(-50%, -50%) rotate(-15deg);
+            }
+          }
+      }
+      
+    &_discount {
+        font-family: 'PT Root UI';
+        font-size: 20px;
+        font-weight: 700;
+        color: #2D3242;
+        position: relative;
+    }
+        
+
+    &_price {
+        padding-top: 24px;
+        display: flex;
+        border-top:#E7EAF1 1px solid;
+
+        &_number {
+            font-family: 'PT Root UI';
+            font-size: 46px;
+            font-weight: 900;
+        }
+
+        .star {
+            height: 53px;
+            width: 53px;
+            position: relative;
+
+            &__icon {
+                position: absolute;
+                top: -35%;
+            }
+        }
+    }
+}
+
+.chosenItem {
+    //active item
+    border: var(--blue) 2px solid;
+    background: var(--lightBlue);
+    cursor: pointer;
+}

@@ -12,7 +12,7 @@ export const editDataInPopUp = (data: ExtendedProduct[]): ExtendedProduct[] => {
         el.noSalePrice = 1690;
       } else if (el.price === 1690) {
         el.sale = 60;
-        el.noSalePrice = 1690;
+        el.noSalePrice = 5990;
       }
       return el;
     });
