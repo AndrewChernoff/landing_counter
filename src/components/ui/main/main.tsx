@@ -6,8 +6,8 @@ import { Card } from "../card/card";
 import { Button } from "../button/button";
 import { getItems } from "../../../common/functions/getItems";
 import { editBeforeTimerEnds } from "../../../common/functions/editBeforeTimerEnds";
-import s from "./main.module.scss";
 import { editAfterTimerEnds } from "../../../common/functions/editAfterTimerEnds";
+import s from "./main.module.scss";
 
 export type ExtendedProduct = Product & {
   noSalePrice: number;

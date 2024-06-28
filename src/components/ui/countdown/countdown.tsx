@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import s from "./countdown.module.scss";
 
-
 type PropsType = {
     time: number
     setTime: (value: number | ((prevTime: number) => number)) => void

@@ -5,7 +5,7 @@ import { Main } from "./components/ui/main/main";
 import { Suggestion } from "./components/ui/modal/suggestion/suggestion";
 
 function App() {
-  const [time, setTime] = useState<number>(3);
+  const [time, setTime] = useState<number>(1500);
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   useEffect(() => {
