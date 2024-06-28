@@ -18,7 +18,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   return (
-    <button type="button" className={`${s[size]} ${className}`} onClick={callback} {...props}>
+    <button type="button" className={`${s.button} ${s[size]} ${className}`} onClick={callback} {...props}>
       {children}
     </button>
   );

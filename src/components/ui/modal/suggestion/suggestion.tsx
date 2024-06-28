@@ -8,7 +8,12 @@ import { Item } from "./item/item";
 import { Close } from "../../../close/close";
 import s from "./suggestion.module.scss";
 
-export const Suggestion = () => {
+type PropsType = {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+} 
+
+export const Suggestion = ({isOpen, setIsOpen} : PropsType) => {
   const [items, setItems] = useState<ExtendedProduct[] | null>(null);
   const [pickedItem, setPickedItem] = useState<ExtendedProduct | null>(null);
 
@@ -16,10 +21,12 @@ export const Suggestion = () => {
     getItems(editDataInPopUp).then((res) => setItems(res as ExtendedProduct[]));
   }, []);
 
+  const closeModal = () => setIsOpen(false)
+
   return (
-    <Modal isOpen={true} callBack={() => console.log("yo")}>
+    <Modal isOpen={isOpen} callBack={() => console.log("yo")}>
       <div className={s.hot}>горящее предложение</div>
-      <button className={s.close}><Close /></button>
+      <button className={s.close} onClick={closeModal}><Close /></button>
       <div className={s.modal}>
         <h2>
           Не упусти свой <span>последний шанс</span>
