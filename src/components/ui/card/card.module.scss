@@ -81,7 +81,7 @@
     z-index: 1;
 }
 
-.chosenItem {
+.chosenItem { //active item
     border: var(--blue) 2px solid;
     background: var(--lightBlue);
     cursor: pointer;

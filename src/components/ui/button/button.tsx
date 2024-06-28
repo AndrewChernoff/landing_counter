@@ -3,7 +3,7 @@ import s from "./button.module.scss";
 
 interface ButtonProps {
   size?: "small" | "large";
-  className: string;
+  className?: string;
   /* disabled?: boolean */
   callback?: () => void;
   children: ReactNode;

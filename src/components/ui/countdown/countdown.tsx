@@ -27,7 +27,7 @@ export const Countdown = ({time, setTime} : PropsType) => {
     }
 
     return () => clearInterval(timer); // Clear interval on component unmount
-  }, [time]);  
+  }, [setTime, time]);  
 
   return (
     <div className={s.countdown}>

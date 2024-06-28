@@ -1,16 +1,18 @@
 type PropsType = {
   sale: number
+  height?: string
+  width?: string
 }
 
-export const Star = ({sale}: PropsType) => {
+export const Star = ({sale, height, width}: PropsType) => {
   return (
     <div style={{position: "relative"}}>
       <div style={{position: "absolute", top: "50%", right: "50%", transform: 'translateX(50%) translateY(-50%)', color: 'white'}}>
       -{sale}%
       </div>
     <svg
-      width="66"
-      height="65"
+      width={width || "66"}
+      height={height ||"65"}
       viewBox="0 0 66 65"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

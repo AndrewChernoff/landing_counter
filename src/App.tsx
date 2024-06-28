@@ -5,7 +5,7 @@ import { Main } from "./components/ui/main/main";
 import { Suggestion } from "./components/ui/modal/suggestion/suggestion";
 
 function App() {
-  const [time, setTime] = useState<number>(/* 120 */120);
+  const [time, setTime] = useState<number>(120);
 
   return (
     <>

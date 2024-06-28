@@ -4,9 +4,10 @@ import containerStyles from "../../../common/styles/mainContainer.module.scss";
 import { Product } from "../../../common/types/types";
 import { Card } from "../card/card";
 import { Button } from "../button/button";
-import s from "./main.module.scss";
 import { getItems } from "../../../common/functions/getItems";
-import { editDataBeforePopUp } from "../../../common/functions/editBeforePopUp";
+import { editBeforeTimerEnds } from "../../../common/functions/editBeforeTimerEnds";
+import s from "./main.module.scss";
+import { editAfterTimerEnds } from "../../../common/functions/editAfterTimerEnds";
 
 export type ExtendedProduct = Product & {
   noSalePrice: number;
@@ -15,28 +16,27 @@ export type ExtendedProduct = Product & {
 };
 
 type PropsType = {
-  time: number
-}
+  time: number;
+};
 
-export const Main = ({time}: PropsType) => {
+export const Main = ({ time }: PropsType) => {
   const [items, setItems] = useState<ExtendedProduct[] | null>(null);
-  const [chosenItem, setChosenItem] = useState<ExtendedProduct | null>(null)  
-
+  const [chosenItem, setChosenItem] = useState<ExtendedProduct | null>(null);
+  const timeIsUp = time !== 0; ///if timer reached 00:00
 
   useEffect(() => {
-    getItems(editDataBeforePopUp).then((res) => setItems(res as ExtendedProduct[]));
-  }, []);
-
-  const chooseItem = (item: ExtendedProduct) => setChosenItem(item)
-
-  const filterProducts = (items: ExtendedProduct[]) => {
-    if (time !== 0) {
-      return items.filter((el) => (el.isPopular === true))
+    if (timeIsUp) {
+      getItems(editBeforeTimerEnds).then((res) =>
+        setItems(res as ExtendedProduct[])
+      );
     } else {
-      return items.filter((el) => (el.isPopular === false && el.isDiscount === false)
-    )
+      getItems(editAfterTimerEnds).then((res) =>
+        setItems(res as ExtendedProduct[])
+      );
     }
-  };
+  }, [timeIsUp]);
+
+  const chooseItem = (item: ExtendedProduct) => setChosenItem(item);
 
   return (
     <div className={s.main}>
@@ -47,37 +47,46 @@ export const Main = ({time}: PropsType) => {
           <img src={man} alt="man image" />
           <div className={s.main__content_info}>
             <div className={s.main__content_items}>
-              {/* {items
-                ?.filter((el) =>
-                  time !== 0 ? el.isPopular === true : el.isPopular === false
-                )
-                .map((el, index) => {
-                  return <Card key={el.id} timeIsUp={time !== 0} index={index} chosenId={chosen} chooseItem={chooseItem} {...el} />;
-                })} */}
-                {items && filterProducts(items)
-                ?.filter((el) =>
-                  time !== 0 ? el.isPopular === true : el.isPopular === false
-                )
-                .map((el, index) => {
-                  return <Card key={el.id} timeIsUp={time !== 0} index={index} pickedItem={chosenItem} chooseItem={chooseItem} product={el} />;
-                })}
+              {
+                items?.map((el, index) => {
+                  return (
+                    <Card
+                      key={el.id}
+                      timeIsUp={timeIsUp}
+                      index={index}
+                      pickedItem={chosenItem}
+                      chooseItem={chooseItem}
+                      product={el}
+                    />
+                  );
+                })
+              }
             </div>
             <p className={s.main__content_descr}>
               Следуя плану на 3 месяца, люди получают в 2 раза лучший результат,
               чем за 1 месяц
             </p>
-              <label className={s.policy}>
-                <input type="checkbox" />
-                <span className={s.checkmark}></span> 
-                <p>Я соглашаюсь с{" "}
-                <span className={s.policy__blue}>Правилами сервиса</span> и условиями{" "}
+            <label className={s.policy}>
+              <input type="checkbox" />
+              <span className={s.checkmark}></span>
+              <p>
+                Я соглашаюсь с{" "}
+                <span className={s.policy__blue}>Правилами сервиса</span> и
+                условиями{" "}
                 <span className={s.policy__blue}> Публичной оферты</span>.
-                </p>
-                <span className={s.checkmark}></span>
-              </label>
-              <Button size="small" className={s.buy__btn}>Купить</Button>
+              </p>
+              <span className={s.checkmark}></span>
+            </label>
+            <Button size="small" className={s.buy__btn}>
+              Купить
+            </Button>
 
-              <p className={s.policy__agree}>Нажимая «Купить», Пользователь соглашается на автоматическое списание денежных средств по истечению купленного периода. Дальнейшие списания по тарифам участвующим в акции осуществляются по полной стоимости согласно оферте.</p>
+            <p className={s.policy__agree}>
+              Нажимая «Купить», Пользователь соглашается на автоматическое
+              списание денежных средств по истечению купленного периода.
+              Дальнейшие списания по тарифам участвующим в акции осуществляются
+              по полной стоимости согласно оферте.
+            </p>
           </div>
         </div>
       </div>

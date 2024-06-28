@@ -3,7 +3,7 @@ import { Star } from "../../icons/star/star";
 import { ExtendedProduct } from "../main/main";
 import s from "./card.module.scss";
 
-type PropsType = /* ExtendedProduct & */ {
+type PropsType = {
   product: ExtendedProduct
   index: number;
   chooseItem: (id: ExtendedProduct) => void;
@@ -27,7 +27,6 @@ export const Card = ({
     sale
 } = product
 
-console.log(pickedItem);
 
 
   const itemCN = classNames({ [s.card]: index !== 3 }, {[s.lastCard] : index === 3}, {[s.chosenItem] : id === pickedItem?.id})
