@@ -10,7 +10,7 @@ export const Countdown = ({time, setTime} : PropsType) => {
   const [blink, setBlink] = useState(false)
 
   useEffect(() => {
-    const timer: NodeJS.Timeout = setInterval(() => {
+    const timer: ReturnType<typeof setInterval> = setInterval(() => {
       setTime((prevTime) => {
         if (prevTime === 0) {
           clearInterval(timer);
