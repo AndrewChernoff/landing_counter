@@ -1,6 +1,6 @@
 .item {
     width: 210px;
-    min-height: 197px;
+    height: 220px;
     padding: 26px 22px 20px 26px;
     display: flex;
     flex-direction: column;
@@ -10,6 +10,22 @@
     border: #E7EAF1 2px solid;
     cursor: pointer;
 
+    @media screen and (max-width: 770px) {
+        display: grid;
+        grid-template-areas:
+        'name name name name name name'
+        'price price price discount discount discount'
+        'price price price discount discount discount';
+        padding: 24px 20px 18px 20px;
+        width: 100%;
+        height: 133px;
+    }
+
+    @media screen and (max-width: 360px) {
+        height: 125px;
+        gap: 5px;
+    }
+
     &_name {
         display: flex;
         justify-content: space-between;
@@ -18,6 +34,23 @@
             font-family: 'Bebas Neue';
             font-size: 26px;
             font-weight: 400;
+            @media screen and (max-width: 440px) {
+                font-size: 24px;
+            }
+        }
+
+        @media screen and (max-width: 770px) {
+            grid-area: name;
+        }
+
+        @media screen and (max-width: 440px) {
+            width: 265px;
+        }
+        @media screen and (max-width: 380px) {
+            width: 240px;
+        }
+        @media screen and (max-width: 360px) {
+            width: 230px;
         }
     }
 
@@ -25,6 +58,9 @@
         position: relative;
         display: inline-block;
         text-align: center;
+        @media screen and (max-width: 770px) {
+           margin-top: 20px;
+        }
         &_mark {
             position: absolute;
             top: -1px; // Adjust this value to position the cross mark above the text
@@ -62,6 +98,9 @@
         font-weight: 700;
         color: #2D3242;
         position: relative;
+        @media screen and (max-width: 770px) {
+            grid-area: discount;
+        }
     }
         
 
@@ -69,11 +108,21 @@
         padding-top: 24px;
         display: flex;
         border-top:#E7EAF1 1px solid;
+        @media screen and (max-width: 770px) {
+            grid-area: price;
+            padding-top: 0;
+            border-top: none;
+        }
+        
 
         &_number {
             font-family: 'PT Root UI';
             font-size: 46px;
             font-weight: 900;
+            @media screen and (max-width: 770px) {
+                font-size: 44px;
+                font-weight: 700;
+            }
         }
 
         .star {

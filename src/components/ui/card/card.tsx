@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import { Star } from "../../icons/star/star";
 import { ExtendedProduct } from "../main/main";
-import s from "./card.module.scss";
 import useWindowDimensions from "../../../common/hooks/useWindowDimensions";
+import s from "./card.module.scss";
 
 type PropsType = {
   product: ExtendedProduct
@@ -30,17 +30,6 @@ export const Card = ({
 
 const { width } = useWindowDimensions();
 
-  console.log(width);
-  //&& width > 740
-
-  //const itemCN = classNames({ [s.card]: index !== 3 }, {[s.lastCard] : index === 3 }, {[s.chosenItem] : id === pickedItem?.id})
-  /* const itemCN = () => {
-    if (width > 740) {
-      return classNames({ [s.card]: index !== 3 }, {[s.lastCard] : index === 3 }, {[s.chosenItem] : id === pickedItem?.id})
-    } else {
-      return classNames([s.card], {[s.chosenItem] : id === pickedItem?.id})
-    }
-  } */
   const itemCN = width > 740 ? classNames({ [s.card]: index !== 3 }, {[s.lastCard] : index === 3 }, {[s.chosenItem] : id === pickedItem?.id}) : classNames([s.card], {[s.chosenItem] : id === pickedItem?.id})  
 
   return (

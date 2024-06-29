@@ -13,6 +13,16 @@
     border: 1px solid #4C4C4C;
     z-index: 1;
 
+    @media screen and (max-width: 750px) {
+        top: 2%;
+        width: 95%;
+        height: 95%;
+    }
+    @media screen and (max-width: 360px) {
+        top: 1%;
+        height: 98%;
+    }
+
     &__overlay {
         position: fixed;
         inset: 0;

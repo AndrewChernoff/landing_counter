@@ -67,7 +67,7 @@ export const Main = ({ time }: PropsType) => {
               чем за 1 месяц
             </p>
             <label className={s.policy}>
-              <input type="checkbox" />
+              <input type="checkbox"/>
               <span className={s.checkmark}></span>
               <p>
                 Я соглашаюсь с{" "}
