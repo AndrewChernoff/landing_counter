@@ -17,6 +17,10 @@
             gap: 29px;
         }
 
+        @media screen and (max-width: 740px) {
+            margin-top: 20px;
+        }
+
         img {
             width: 39%;
             @media screen and (max-width: 500px) {
