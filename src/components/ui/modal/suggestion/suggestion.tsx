@@ -23,8 +23,13 @@ export const Suggestion = ({isOpen, setIsOpen} : PropsType) => {
 
   const closeModal = () => setIsOpen(false)
 
+  const startHandler = () => {
+    pickedItem && alert(`Вы купили тариф "${pickedItem.name.toUpperCase()}".`)
+    closeModal()
+  }
+
   return (
-    <Modal isOpen={isOpen} callBack={() => console.log("yo")}>
+    <Modal isOpen={isOpen} callBack={closeModal}>
       <div className={s.hot}>горящее предложение</div>
       <button className={s.close} onClick={closeModal}><Close /></button>
       <div className={s.modal}>
@@ -54,7 +59,7 @@ export const Suggestion = ({isOpen, setIsOpen} : PropsType) => {
           </div>
         </div>
 
-        <Button size="large" callback={() => console.log("yo")}>
+        <Button size="large" disabled={!pickedItem} callback={startHandler}>
           Начать
         </Button>
       </div>

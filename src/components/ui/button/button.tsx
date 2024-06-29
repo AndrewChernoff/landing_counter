@@ -4,7 +4,7 @@ import s from "./button.module.scss";
 interface ButtonProps {
   size?: "small" | "large";
   className?: string;
-  /* disabled?: boolean */
+  disabled?: boolean
   callback?: () => void;
   children: ReactNode;
 }
@@ -14,11 +14,11 @@ export const Button = ({
   callback,
   children,
   className,
-  /*  disabled, */
+   disabled,
   ...props
 }: ButtonProps) => {
   return (
-    <button type="button" className={`${s.button} ${s[size]} ${className}`} onClick={callback} {...props}>
+    <button type="button" className={`${s.button} ${s[size]} ${className} ${disabled && s.disabled}`} onClick={callback} {...props}>
       {children}
     </button>
   );

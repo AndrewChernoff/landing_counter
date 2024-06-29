@@ -20,6 +20,7 @@ type PropsType = {
 };
 
 export const Main = ({ time }: PropsType) => {
+  const [isChecked, setIsChecked] = useState(false)
   const [items, setItems] = useState<ExtendedProduct[] | null>(null);
   const [chosenItem, setChosenItem] = useState<ExtendedProduct | null>(null);
   const timeIsUp = time !== 0; ///if timer reached 00:00
@@ -37,6 +38,12 @@ export const Main = ({ time }: PropsType) => {
   }, [timeIsUp]);
 
   const chooseItem = (item: ExtendedProduct) => setChosenItem(item);
+
+  const onCheckboxHandler = ( e: React.ChangeEvent<HTMLInputElement>) => setIsChecked(e.currentTarget.checked)
+
+  const buyHandler = () => {
+    chosenItem && alert(`Вы купили тариф "${chosenItem?.name.toUpperCase()}".`)
+  }
 
   return (
     <div className={s.main}>
@@ -67,7 +74,7 @@ export const Main = ({ time }: PropsType) => {
               чем за 1 месяц
             </p>
             <label className={s.policy}>
-              <input type="checkbox"/>
+              <input type="checkbox" checked={isChecked} onChange={onCheckboxHandler}/>
               <span className={s.checkmark}></span>
               <p>
                 Я соглашаюсь с{" "}
@@ -77,7 +84,7 @@ export const Main = ({ time }: PropsType) => {
               </p>
               <span className={s.checkmark}></span>
             </label>
-            <Button size="small" className={s.buy__btn}>
+            <Button size="small" disabled={!isChecked || !chosenItem} className={s.buy__btn} callback={buyHandler}>
               Купить
             </Button>
 

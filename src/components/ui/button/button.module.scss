@@ -44,3 +44,10 @@
         height: 76px;
     }
 }
+
+.disabled {
+    background-color: grey;
+    &:hover {
+        background-color: grey;
+    }
+}
