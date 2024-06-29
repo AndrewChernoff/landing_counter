@@ -2,4 +2,12 @@
     max-width: 1093px;
     //height: 100%;
     margin: 0 auto;
+
+    @media screen and (max-width: 1150px) {
+        max-width: 75%;
+    }
+
+    @media screen and (max-width: 740px) {
+        max-width: 90%;
+    }
 }
