@@ -15,15 +15,32 @@
 }
 
 .large {
+    font-family: 'Rubik';
+    font-size: 20px;
+    font-weight: 500;
     width: 310px;
     height: 62px;
     border-radius: 30px;
     background: var(--orange);
+
+    @media screen and (max-width: 850px) {
+        width: 295px;
+        height: 62px;
+    }
 }
 
 .small {
+    font-family: 'Rubik';
+    font-size: 20px;
+    font-weight: 500;
+
     width: 281px;
     height: 76px;
     border-radius: 60px;
     background: var(--orange);
+
+    @media screen and (max-width: 850px) {
+        width: 335px;
+        height: 76px;
+    }
 }

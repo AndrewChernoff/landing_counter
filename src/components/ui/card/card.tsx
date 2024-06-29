@@ -53,7 +53,7 @@ const { width } = useWindowDimensions();
         </div>
         <div className={s.card__descr}>{descr}</div>
         {timeIsUp &&<div className={s.star}>
-          <Star sale={sale}/>
+          <Star sale={sale} width="55" height="55"/>
         </div>}
       </div>
     </>
