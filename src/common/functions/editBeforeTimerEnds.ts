@@ -1,9 +1,8 @@
 import { ExtendedProduct } from "../../components/ui/main/main";
 
 export const editBeforeTimerEnds = (data: ExtendedProduct[]): ExtendedProduct[] => {
-  const filteredData = data.filter((el) => el.isDiscount === false && el.isPopular === true); 
-  console.log(filteredData);
-  
+  const filteredData = data.filter((el) => el.isDiscount === false && el.isPopular === true);
+
     ///edit data before countdown finishs
     const newData = filteredData.map((el) => {
       if (el.name === "1 неделя") {
